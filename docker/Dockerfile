@@ -6,6 +6,9 @@ FROM twosixarmory/pytorch-deepspeech:${armory_version} AS armory-pytorch-deepspe
 ########## Extra packages for defense #############
 
 WORKDIR /
+RUN pip3 install torch==1.7.1
+RUN pip3 install torchaudio==0.7.2
+RUN pip3 install torchvision==0.8.2 #https://download.pytorch.org/whl/cu100/torchvision-0.3.0-cp36-cp36m-linux_x86_64.whl
 RUN  git clone https://github.com/RaphaelOlivier/SCTK.git
 WORKDIR /SCTK
 RUN make config && make all && make check && make install && make doc
@@ -24,7 +27,7 @@ WORKDIR /tmp/ahoproc_tools
 RUN pip install .
 WORKDIR /tmp
 RUN pip install --upgrade google-cloud-speech
-RUN pip install pytorch_lightning 
+RUN pip install pytorch_lightning==1.3.8 
 RUN pip install git+https://github.com/romesco/hydra-lightning/#subdirectory=hydra-configs-pytorch-lightning
 #WORKDIR /tmp
 #RUN  git clone https://github.com/SeanNaren/warp-ctc.git

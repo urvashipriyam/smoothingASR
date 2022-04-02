@@ -107,7 +107,7 @@
         "export_samples": 10
     },
     "sysconfig": {
-        "docker_image": "perspecta/pytorch-asr:latest",
+        "docker_image": "smoothing/pytorch-asr:latest",
         "external_github_repo": [
             "RaphaelOlivier/deepspeech.pytorch",
             "RaphaelOlivier/gard_eval2_public@main"
